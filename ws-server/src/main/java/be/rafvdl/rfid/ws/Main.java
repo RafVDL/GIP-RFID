@@ -1,4 +1,4 @@
-package be.rafvdl.rfid.testws;
+package be.rafvdl.rfid.ws;
 
 import java.net.InetSocketAddress;
 import java.util.Collections;
