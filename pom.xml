@@ -8,8 +8,18 @@
 
 	<modules>
 		<module>rfid-api</module>
-		<module>ws-server</module>
+		<module>tijdregistratie</module>
+		<module>toegangscontrole</module>
 	</modules>
+
+	<dependencies>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.12</version>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
 
 	<build>
 		<plugins>
