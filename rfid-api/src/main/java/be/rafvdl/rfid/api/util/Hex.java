@@ -8,8 +8,14 @@ public class Hex {
 		return org.apache.commons.codec.binary.Hex.encodeHexString(array);
 	}
 
-	public static byte[] toByteArray(String s) throws DecoderException {
-		return org.apache.commons.codec.binary.Hex.decodeHex(s.toCharArray());
+	public static byte[] toByteArray(String s) {
+		try {
+			return org.apache.commons.codec.binary.Hex.decodeHex(s
+					.toCharArray());
+		} catch (DecoderException e) {
+			e.printStackTrace();
+		}
+		return null;
 	}
 
 }

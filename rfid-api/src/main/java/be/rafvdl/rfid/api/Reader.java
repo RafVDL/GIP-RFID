@@ -7,6 +7,8 @@ import jssc.SerialPort;
 import jssc.SerialPortException;
 import be.rafvdl.rfid.api.command.FirmwareRequestCommand;
 import be.rafvdl.rfid.api.command.VersionRequestCommand;
+import be.rafvdl.rfid.api.util.Hex;
+import be.rafvdl.rfid.api.util.UID;
 
 public class Reader {
 
@@ -51,8 +53,10 @@ public class Reader {
 		do {
 			s = getCommunication().waitForMessage();
 			if (s != null && !s.isEmpty() && s.length() > 3) {
-				String uid = s.substring(3, s.length() - 1).split(",")[0];
-				tags.add(new Tag(uid, null));
+				String[] split = s.substring(3, s.length() - 1).split(",");
+				String uid = split[0];
+				byte distance = Hex.toByteArray(split[1])[0];
+				tags.add(new Tag(UID.flip2(uid), null, distance));
 			}
 			try {
 				Thread.sleep(100);

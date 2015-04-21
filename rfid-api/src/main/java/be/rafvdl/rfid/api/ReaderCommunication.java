@@ -6,7 +6,7 @@ import be.rafvdl.rfid.api.util.Hex;
 
 public class ReaderCommunication {
 
-	public static final long TIMEOUT = 1000;
+	private static final long TIMEOUT = 1000;
 
 	private final Reader reader;
 
