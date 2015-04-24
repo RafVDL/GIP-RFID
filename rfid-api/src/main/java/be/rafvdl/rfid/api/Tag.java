@@ -29,4 +29,11 @@ public class Tag {
 		return uid;
 	}
 
+	@Override
+	public boolean equals(Object obj) {
+		return (obj instanceof Tag) && ((Tag) obj).uid == this.uid
+				&& ((Tag) obj).data == this.data
+				&& ((Tag) obj).distance == this.distance;
+	}
+
 }
